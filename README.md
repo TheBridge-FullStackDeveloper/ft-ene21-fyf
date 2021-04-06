@@ -2,7 +2,7 @@
 ## Requisitos del proyecto
 <br>
 
-Se pide desarrollar una aplicación web de búsqueda y gestión de `ofertas laborales en Madrid / ofertas de empleo freelance / cursos sobre desarrollo web` .
+Se pide desarrollar una aplicación web de búsqueda y gestión de `ofertas laborales en España / proyectos freelance en todo el mundo / cursos on-line sobre desarrollo web` .
 Dicha app deberá contemplar las siguientes vistas y funcionalidades:
 <br>
 <br>
@@ -25,7 +25,8 @@ Tendrá los siguientes enlaces:
 ### Vista inicial (home)
 <br>
 
-`/` : Vista de inicio de la app. Tendrá como mínimo un input de texto y un botón para efectuar la búsqueda. Una vez realizada la misma, se mostrará debajo una lista de "tarjetas" que contengan los datos más relevantes de cada resultado y un botón para guardar cada una de ellas en `favoritos`.  
+`/` : Vista de inicio de la app. Tendrá como mínimo un input de texto y un botón para efectuar la búsqueda. Una vez realizada la misma, se mostrará debajo una lista de "tarjetas" que contengan los datos más relevantes de cada resultado y un botón para guardar cada una de ellas en `favoritos`.
+Cada "tarjeta" contendrá un enlace a la fuente original de la información, que se abrirá en una pestaña nueva del navegador.   
 Cada vez que se realice una nueva búsqueda, los resultados anteriores dejarán de mostrarse. 
 
 
@@ -45,7 +46,26 @@ El botón para guardar en favoritos se muestra solo en el caso de que el usuario
 <br>
 
 <strong>`/ingresar`</strong> : Validación de credenciales, abrir sesión y redirección **home**.
-(!!!! acá podríamos agregar la opción de recuperar contraseña ;-) con Nodemailer + JWT si les parece importante)
+
+<br>
+<br>
+
+---
+---
+
+_Opcional: Se podrá ofrecer la opción de recuperar contraseña. Esto implica construir dos vistas nuevas:_
+
+_- Recuperar password : <strong>`/recuperarpassword`</strong>_
+
+_Tendrá un input para ingresar el e-mail y un botón. Al hacer click se enviará al e-mail (previa comprobación de que corresponde a un usuario existente en la BD) un link que redirija a "/reestablecerpassword" y que además contendrá un JWT._
+
+_- Reestablecer password : <strong>`/reestablecerpassword`</strong>_
+
+_Tendrá un input para ingresar la nueva contraseña. Dicha actualización impactará en la BD previa comprobación de la validez del JWT._ 
+
+---
+---
+
 <br>
 <br>
 
@@ -77,7 +97,7 @@ El almacenamiento y la búsqueda de los datos, se realizará de la siguiente man
 
 Toda la información relativa a los `usuarios` de la plataforma (credenciales y otras cuestiones de acceso, así como la asociación de favoritos a usuarios) se almacenará en una base de datos relacional SQL.
 
-Los datos de las búsquedas provendrán del scrapping de al menos dos webs distintas que deberán seleccionarse previo análisis.
+Los datos de las búsquedas provendrán del scraping de al menos dos webs distintas que deberán seleccionarse previo análisis.
 
 El modelo de datos dependerá de la información que pueda recogerse de las plataformas elegidas. 
 
@@ -96,13 +116,48 @@ Se valorará positivamente que además sea `PWA` (progressive web app), si bien 
 ### Sobre los recursos de terceros
 
 Se permite (y recomienda, si con ello se minimiza el tiempo de desarrollo y se acelera así el de entrega) el `uso de cualquier recurso de terceros` (librerías, paquetes npm, etc.) además del código propio.
+
 <br>
 <br>
 
 ### Sobre la metodología
+<br>
 
 Durante el desarrollo del proyecto completo, se seguirá una metodología ágil tipo SCRUM.
 
 Esto implicará el establecimiento de un backlog de tareas, un sprint con sus story points y reparto de tareas.
 
 _Opcionalmente, se valorará positivamente aplicar TDD (e2e y pruebas unitarias)._
+
+<br>
+<br>
+
+---
+---
+
+<br>
+
+### Especificaciones para grupo de <span style="color:green">OFERTAS LABORALES</span>
+
+<br>
+
+- Las ofertas de empleos en programación que ofrezca el buscador serán _sin experiencia previa_
+
+<br>
+<br>
+
+### Especificaciones para grupo de <strong><span style="color:purple">PROYECTOS FREELANCE</span></strong>
+
+<br>
+
+- Las ofertas de proyectos freelance en programación deben ser pequeños proyectos.
+
+<br>
+<br>
+
+### Especificaciones para grupo de <strong><span style="color:orange">CURSOS DE PROGRAMACIÓN</span></strong>
+
+<br>
+
+- El objetivo de esta búsqueda es que la app ofrezca todos los resultados de los cursos encontrados destacando visualmente el que la app defina como "recomendado". 
+
